@@ -61,3 +61,6 @@ print(until(20, lambda  x: x%5 == 0 or x%7 == 0, 0))
 
 # 2.2. 함수형 하이브리드
 print(sum(n for n in range(1, 20) if n%5 == 0 or n%7==0))
+
+# 2.3. 함수형 프로그래밍 예
+## 제곱근 구하기, Newton-Raphson 알고리즘 이용..
