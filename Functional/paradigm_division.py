@@ -62,5 +62,31 @@ print(until(20, lambda  x: x%5 == 0 or x%7 == 0, 0))
 # 2.2. 함수형 하이브리드
 print(sum(n for n in range(1, 20) if n%5 == 0 or n%7==0))
 
+
 # 2.3. 함수형 프로그래밍 예
-## 제곱근 구하기, Newton-Raphson 알고리즘 이용..
+# 제곱근 구하기, Newton-Raphson 알고리즘 이용..
+def next_(n, x):
+    return (x + n/x) / 2
+
+
+# 실행할때마다 한단계씩 진행되는 무한함수
+def repeat(f, a):
+    yield a
+    for v in repeat(f, f(a)):
+        yield v
+
+
+# 오차 이하까지 계산하는 함수
+def within(e, iterable):
+    def head_tail(e, a, iterable):
+        b = next(iterable)
+        if abs(a-b) <= e:
+            return b
+        return head_tail(e, b, iterable)수
+    return head_tail(e, next(iterable), iterable)
+
+
+# 실제 sqrt를 구하는 함
+def sqrt(a0, e, n):
+    return within(e, repeat(lambda x: next_(n, x), a0))
+
