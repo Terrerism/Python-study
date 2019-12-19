@@ -82,7 +82,7 @@ def within(e, iterable):
         b = next(iterable)
         if abs(a-b) <= e:
             return b
-        return head_tail(e, b, iterable)수
+        return head_tail(e, b, iterable)
     return head_tail(e, next(iterable), iterable)
 
 
